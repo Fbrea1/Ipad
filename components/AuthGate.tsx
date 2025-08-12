@@ -7,9 +7,8 @@ export default function AuthGate({ children }: { children: React.ReactNode }) {
 
   useEffect(()=>{
     const sb = supabaseBrowser()
-    sb.auth.getSession().then((res: any) => {
-  setUser(res.data?.session?.user ?? null)
-  setReady(true)
+    const { data: sub } = sb.auth.onAuthStateChange((_e: any, session: any) => {
+  setUser(session?.user ?? null)
 })
     const { data: sub } = sb.auth.onAuthStateChange((_e, session) => {
       setUser(session?.user ?? null)
