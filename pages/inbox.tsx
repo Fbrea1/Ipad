@@ -1,7 +1,7 @@
 import AuthGate from '../components/AuthGate'
 import TopNav from '../components/TopNav'
 import { useEffect, useState } from 'react'
-const id = crypto.randomUUID();
+
 
 type Task = { id:string; title:string; minutes:number; priority:'low'|'medium'|'high'; due?:string }
 
@@ -28,7 +28,7 @@ export function InboxInner(){
 
   const add = ()=>{
     if (!input.trim()) return
-    setTasks([{ id: uuidv4(), title: input.trim(), minutes: 30, priority: 'medium' }, ...tasks])
+    setTasks([{ id: crypto.randomUUID(), title: input.trim(), minutes: 30, priority: 'medium' }, ...tasks])
     setInput('')
   }
 
