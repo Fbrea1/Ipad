@@ -1,7 +1,7 @@
 import AuthGate from '../components/AuthGate'
 import TopNav from '../components/TopNav'
 import { useEffect, useState } from 'react'
-import { v4 as uuidv4 } from 'uuid'
+const id = crypto.randomUUID();
 
 type Task = { id:string; title:string; minutes:number; priority:'low'|'medium'|'high'; due?:string }
 
